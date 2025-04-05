@@ -1,9 +1,12 @@
 # Audio-Deepfake-Detection
 
-GitHub Repository: [Audio Deepfake Detection](https://github.com/media-sec-lab/Audio-Deepfake-Detection)
+Referred Repository: [Audio Deepfake Detection](https://github.com/media-sec-lab/Audio-Deepfake-Detection)
 
 ### **Problem Statement**
-Detecting AI-generated human speech, ensuring potential for real-time or near real-time detection, and analyzing real conversations is a growing challenge. 
+
+- Detecting AI-generated human speech  
+- Potential for real-time or near real-time detection  
+- Analysis of real conversations
 
 ---
 ## Research & Selection
@@ -46,7 +49,7 @@ End-to-End Detection eliminates the need for manual feature extraction, learning
 ---
 
 ### **Data Augmentation Considerations**
-- Given that the dataset is already comprehensive and diverse, adding data augmentation might not significantly improve the model's performance for this specific use case. The variety within the ASVspoof 5 dataset should be sufficient for training a robust end-to-end detection model.
+- Given that the dataset is already comprehensive and diverse, adding data augmentation might not significantly improve the model's performance for this specific use case. The variety within the ASVspoof2019 dataset should be sufficient for training a robust end-to-end detection model.
 - While data augmentation may help in certain cases, the current focus is on the model's ability to detect deepfakes in real-time using high-quality raw data. If used, augmentation techniques like noise addition or pitch shifting may slightly enhance the model's robustness but are unlikely to drastically change the results.
 **Verdict**: Data augmentation, while useful in some scenarios, is not critical for this particular project and will not significantly affect the model's performance if omitted.
 
@@ -120,6 +123,12 @@ Keeping all the above considerations in mind — especially real-time capability
 | **AASIST: Audio Anti-Spoofing using Integrated Spectro-Temporal Graph Attention Networks** | Graph Attention Network capturing both spectral and temporal information from speech spectrograms. | ASVspoof 2019 LA : 0.83% | ASVspoof 2019 LA : 0.028% | High accuracy across multiple datasets. Captures intricate spoofing cues. Robust to noise and reverberation. | Heavier model. Needs optimization (e.g., pruning, quantization) for real-time deployment. |
 
 ---
+
+## Implementation and Documentation
+
+To implement the system, please refer to the `audio_deepfake.ipynb` notebook. Run the notebook and adjust the batch size and number of epochs based on the available memory and time constraints. This project uses the **ASVspoof2019 LA** dataset, which can be downloaded from the following link: [https://datashare.ed.ac.uk/handle/10283/3336](https://datashare.ed.ac.uk/handle/10283/3336).  
+For detailed documentation, consult the attached file titled **Documentation_AASIST.pdf**.
+
 
 
 
