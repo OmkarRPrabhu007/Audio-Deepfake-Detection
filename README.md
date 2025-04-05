@@ -6,6 +6,7 @@ GitHub Repository: [Audio Deepfake Detection](https://github.com/media-sec-lab/A
 Detecting AI-generated human speech, ensuring potential for real-time or near real-time detection, and analyzing real conversations is a growing challenge. 
 
 ---
+## Research & Selection
 
 ### **Selection of Forgery Detection Technique**
 
@@ -77,6 +78,53 @@ The top selected feature extraction methods ,
 
   So, we would choose one among these for the feature extraction 
 ---
+
+### **Selection of Network Structure**
+
+Given the requirement for **real-time or near real-time detection**, **high adaptability**, and **analysis of real conversations**, we evaluated various network structures based on efficiency, scalability, and robustness against deepfake speech synthesis.
+
+#### **1. RawNet + SincConv (Modified Architecture)**
+- **SincConv for Initial Filtering**: The raw waveform is first processed by a Sinc convolutional layer, which applies learnable band-pass filters. This directly targets the frequency artifacts introduced by AI-generated speech.
+- **RawNet Backbone**: The processed signal is passed through a CNN-based architecture (like RawNet), which is tailored for end-to-end speaker verification tasks but adapted here for spoof detection.
+- **Attention Mechanism**: Additional self-attention layers after the residual CNN blocks help the network focus on relevant temporal segments of the speech for improved detection accuracy.
+- **Fast Inference & Low Latency**: The combined use of SincConv and CNN enables faster training and inference, making it suitable for real-time applications.
+- **Verdict**: Best suitable for real-time deepfake detection in natural conversations.
+
+#### **2. ResNet-based Architectures (e.g., RawNet2, ResNet18)**
+- **Deep Residual Learning**: Capable of learning subtle differences between real and fake audio due to deep structure.
+- **Adaptable & Robust**: Performs well across multiple datasets and deepfake methods.
+- **Slightly Higher Inference Time**: While effective, it requires more computational resources than lighter CNNs with SincConv.
+- **Verdict**:  High accuracy, but not ideal for strict real-time use without hardware acceleration.
+
+#### **3. Transformer-based Architectures**
+- **Excellent Context Modeling**: Models like AST (Audio Spectrogram Transformer) capture global audio context effectively.
+- **Computationally Expensive**: Transformers are powerful but require significant computation, which hinders real-time deployment.
+- **Verdict**: Not suitable for real-time detection due to high latency.
+
+---
+
+### **Final Model Selection**
+
+Keeping all the above considerations in mind — especially real-time capability, robustness against diverse spoofing techniques, and effectiveness with raw audio inputs — the following three models have been selected for implementation and comparative evaluation:
+
+#### **1. [End-to-End Anti-Spoofing with RawNet2](https://arxiv.org/abs/2005.14165)**
+#### **2. [Audio Anti-Spoofing with a Simple Attention Module and Joint Optimization](https://arxiv.org/abs/2204.03073)**  
+#### **3. [AASIST: Audio Anti-Spoofing using Integrated Spectro-Temporal Graph Attention Networks](https://arxiv.org/abs/2110.01369)**
+
+#### Summary
+
+| Model | Key Technical Innovation | EER | t-DCF | Why It’s Promising | Potential Limitations |
+|-------|---------------------------|-------------------------------|----------|-----------|------------------------|
+| **End-to-End Anti-Spoofing with RawNet2** | End-to-end residual CNN that learns directly from raw waveforms; uses AM-Softmax loss to improve class separation. | ASVspoof 2019 LA : 1.12% | ASVspoof 2019 LA : 0.033% | Lightweight and fast, ideal for real-time applications. Eliminates need for handcrafted features. | May be less robust against newer, sophisticated spoofing methods. Requires regularization. |
+| **Audio Anti-Spoofing with a Simple Attention Module and Joint Optimization** | Combines simple attention module (SAM), additive angular margin loss, and meta-learning for generalization. | ASVspoof 2021 LA eval : 0.99% | ASVspoof 2021 LA eval : 0.029% | Balances accuracy and efficiency. Attention highlights key segments. Meta-learning improves adaptability to new attacks. | More complex to train. Needs tuning for real-world acoustic variation. |
+| **AASIST: Audio Anti-Spoofing using Integrated Spectro-Temporal Graph Attention Networks** | Graph Attention Network capturing both spectral and temporal information from speech spectrograms. | ASVspoof 2019 LA : 0.83% | ASVspoof 2019 LA : 0.028% | High accuracy across multiple datasets. Captures intricate spoofing cues. Robust to noise and reverberation. | Heavier model. Needs optimization (e.g., pruning, quantization) for real-time deployment. |
+
+---
+
+
+## Implementation 
+
+
 
 
 
