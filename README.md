@@ -122,9 +122,6 @@ Keeping all the above considerations in mind — especially real-time capability
 ---
 
 
-## Implementation 
-
-
 
 
 
