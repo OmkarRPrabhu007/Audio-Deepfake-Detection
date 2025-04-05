@@ -107,9 +107,9 @@ Given the requirement for **real-time or near real-time detection**, **high adap
 
 Keeping all the above considerations in mind — especially real-time capability, robustness against diverse spoofing techniques, and effectiveness with raw audio inputs — the following three models have been selected for implementation and comparative evaluation:
 
-#### **1. [End-to-End Anti-Spoofing with RawNet2](https://arxiv.org/abs/2005.14165)**
-#### **2. [Audio Anti-Spoofing with a Simple Attention Module and Joint Optimization](https://arxiv.org/abs/2204.03073)**  
-#### **3. [AASIST: Audio Anti-Spoofing using Integrated Spectro-Temporal Graph Attention Networks](https://arxiv.org/abs/2110.01369)**
+#### **1. [End-to-End Anti-Spoofing with RawNet2](https://ieeexplore.ieee.org/abstract/document/9414234)**
+#### **2. [Audio Anti-Spoofing with a Simple Attention Module and Joint Optimization](https://arxiv.org/abs/2211.09898)**  
+#### **3. [AASIST: Audio Anti-Spoofing using Integrated Spectro-Temporal Graph Attention Networks](https://arxiv.org/abs/2110.01200)**
 
 #### Summary
 
