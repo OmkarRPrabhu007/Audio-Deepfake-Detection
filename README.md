@@ -1,6 +1,8 @@
 # Audio-Deepfake-Detection
 
-Referred Repository: [Audio Deepfake Detection](https://github.com/media-sec-lab/Audio-Deepfake-Detection)
+Referred Repositories:  
+- [Audio Deepfake Detection](https://github.com/media-sec-lab/Audio-Deepfake-Detection)  
+- [AASIST - ClovaAI](https://github.com/clovaai/aasist/)
 
 ### **Problem Statement**
 
