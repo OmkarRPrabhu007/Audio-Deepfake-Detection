@@ -86,7 +86,7 @@ The top selected feature extraction methods ,
 
 ### **Selection of Network Structure**
 
-Given the requirement for **real-time or near real-time detection**, **high adaptability**, and **analysis of real conversations**, we evaluated various network structures based on efficiency, scalability, and robustness against deepfake speech synthesis.
+Given the requirement for **real-time or near real-time detection**, **high adaptability**, and **analysis of real conversations**, the top network structures are,
 
 #### **1. RawNet + SincConv (Modified Architecture)**
 - **SincConv for Initial Filtering**: The raw waveform is first processed by a Sinc convolutional layer, which applies learnable band-pass filters. This directly targets the frequency artifacts introduced by AI-generated speech.
